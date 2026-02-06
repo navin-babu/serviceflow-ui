@@ -1,0 +1,24 @@
+.header {
+  position: sticky;   /* stays at top when scrolling */
+  top: 0;
+  background-color: rgb(34, 40, 49);
+  color: white;
+  height: 60px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;      /* ensures it stays above content */
+}
+
+.sideButtonsContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.sideButtons {
+    height: 40px;
+    width: 90px;
+    background-color: white;
+    color: rgb(34, 40, 49);
+}
