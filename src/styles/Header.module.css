@@ -1,5 +1,5 @@
 .header {
-  position: sticky;   /* stays at top when scrolling */
+  position: sticky;   
   top: 0;
   background-color: rgb(34, 40, 49);
   color: white;
@@ -8,7 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;      /* ensures it stays above content */
+  z-index: 100;      
+}
+
+.iconName {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    gap: 10px;
 }
 
 .sideButtonsContainer {

@@ -1,0 +1,16 @@
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: rgb(34, 40, 49);
+    color: white;
+}
+
+.sidebarItems {
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.subMenu {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}

@@ -6,10 +6,20 @@ import CustomerDash from "./pages/CustomerDash";
 import Login from "./pages/Login";
 import { Routes, Route, Navigate } from "react-router-dom";
 import TechnicianDash from "./pages/TechnicianDash";
+import { useState } from "react";
+import { useEffect } from "react";
+import AddUser from "./pages/AddUser";
 
 function App() {
 
-    const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
     
   return (
     <div className="app-container">
@@ -30,9 +40,11 @@ function App() {
             user?.role === "TECHNICIAN" ? <TechnicianDash/> : <Navigate to="/login" />
           } />
 
+          <Route path="/admin/add-user" element={<AddUser/>}/>
+
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

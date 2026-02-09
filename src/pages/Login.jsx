@@ -33,6 +33,14 @@ function Login() {
         if (data.role === "ADMIN") {    
             navigate("/adminDashboard");
         }
+
+        if (data.role === "TECHNICIAN") {
+            navigate("/technicianDashboard");
+        }
+
+        if (data.role === "CUSTOMER") {
+            navigate("/customerDashboard");
+        }
     };
 
   return (

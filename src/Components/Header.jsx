@@ -3,15 +3,18 @@ import styles from '../styles/Header.module.css'
 
 function Header() {
     const user = JSON.parse(localStorage.getItem("user"));
-
+    console.log("Login user: ", user);
   return (
     <div>
       <header className={styles.header}>
-        <h2>ServiceFlow</h2>
+        <div className={styles.iconName}>
+          <i className="fa-brands fa-shopware"></i>
+          <h2>ServiceFlow</h2>
+        </div>
         <nav>
           {user ? (
             <>
-                <h4>👤 {user.name}</h4>
+              <h4>👤 {user.name}</h4>
             </>
           ) : (
             <div className={styles.sideButtonsContainer}>

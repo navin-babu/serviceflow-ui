@@ -18,3 +18,27 @@ body {
 .content {
     flex: 1;
 }
+
+.page-layout {
+    display: flex;
+}
+
+.page-content {
+    padding-left: 30px;
+}
+
+.menuItems {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 17px;
+    cursor: pointer;
+}
+
+.menuItems:hover {
+    background-color: #76ABAE;
+}
+
+.fa-brands {
+    font-size: 25px;
+}   
