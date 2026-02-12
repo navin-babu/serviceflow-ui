@@ -31,7 +31,7 @@ function Login() {
         console.log("Login response: ", data);
 
         if (data.role === "ADMIN") {    
-            navigate("/adminDashboard");
+            navigate("/admin");
         }
 
         if (data.role === "TECHNICIAN") {

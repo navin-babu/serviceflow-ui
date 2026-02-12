@@ -28,9 +28,15 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login/>} />
 
-          <Route path="/adminDashboard" element={
-            user?.role === "ADMIN" ? <AdminDash/> : <Navigate to="/login" />
-          } />
+          <Route
+            path="/admin"
+            element={
+              user?.role === "ADMIN" ? <Admin /> : <Navigate to="/login" />
+            }
+          >
+            <Route index element={<AdminDash />} />
+            <Route path="add-user" element={<AddUser />} />
+          </Route>
 
           <Route path="/customerDashboard" element={
             user?.role === "CUSTOMER" ? <CustomerDash/> : <Navigate to="/login" />
@@ -39,8 +45,6 @@ function App() {
           <Route path="/technicianDashboard" element={
             user?.role === "TECHNICIAN" ? <TechnicianDash/> : <Navigate to="/login" />
           } />
-
-          <Route path="/admin/add-user" element={<AddUser/>}/>
 
         </Routes>
       </main>
