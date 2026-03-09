@@ -1,54 +1,36 @@
-import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
-import Sidebar from '../Components/Sidebar';
-import { Children } from 'react';
+import React from "react";
+import { useOutletContext } from "react-router-dom";
+import "../styles/AdminPages.css";
 
 function AdminDash() {
-    const sideBarItems = [
-      { label: "Dashboard", icon: "fa-solid fa-grip" },
-      { label: "Repair Request", icon: "fa-solid fa-screwdriver-wrench" },
+  const { summary } = useOutletContext();
+  const user = JSON.parse(localStorage.getItem("user"));
 
-      {
-        label: "Add User",
-        icon: "fa-solid fa-user-plus",
-        path: "/admin/add-user",
-      },
-      {
-        label: "Edit Users",
-        icon: "fa-solid fa-user-pen",
-        path: "/admin/edit-user",
-      },
-
-      {
-        label: "Add Employee",
-        icon: "fa-solid fa-user-plus",
-        path: "/admin/add-employee",
-      },
-      {
-        label: "Edit Employees",
-        icon: "fa-solid fa-user-pen",
-        path: "/admin/edit-employee",
-      },
-
-      { label: "Report", icon: "fa-solid fa-book" },
-    ];
-
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    console.log("Data in dash:", user);
-    
-    if (!user) {
-        return <Navigate to="/login"/>
-    }
   return (
-    <div className="page-layout">
-      <Sidebar items={sideBarItems} />
-      <div className="page-content">
-        <h1>Admin Dashboard</h1>
-        <h3>Welcome {user.name}</h3> 
+    <div>
+      <h3>Welcome {user?.name || "Admin"}</h3>
+      <p>Track and manage daily service operations from one place.</p>
+
+      <div className="cardsGrid">
+        <div className="metricCard">
+          <h4>Total Users</h4>
+          <p>{summary.usersCount}</p>
+        </div>
+        <div className="metricCard">
+          <h4>Total Employees</h4>
+          <p>{summary.employeesCount}</p>
+        </div>
+        <div className="metricCard">
+          <h4>Open Repairs</h4>
+          <p>{summary.openRepairs}</p>
+        </div>
+        <div className="metricCard">
+          <h4>Completed Repairs</h4>
+          <p>{summary.completedRepairs}</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default AdminDash
+export default AdminDash;

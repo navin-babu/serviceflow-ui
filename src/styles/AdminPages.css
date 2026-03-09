@@ -1,0 +1,102 @@
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.metricCard {
+  background: linear-gradient(145deg, #e0f2fe 0%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.metricCard h4 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.metricCard p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.formGrid {
+  display: grid;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.textInput,
+.selectInput {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+.primaryBtn {
+  width: fit-content;
+  border: none;
+  background-color: #0284c7;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background-color: #0369a1;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable th,
+.dataTable td {
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  padding: 10px 8px;
+}
+
+.dataTable th {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.actionRow {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  border: 1px solid #94a3b8;
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.dangerBtn {
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+.statusPill {
+  display: inline-block;
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #e2e8f0;
+}
+
+.reportBox {
+  border: 1px dashed #94a3b8;
+  border-radius: 10px;
+  padding: 12px;
+}

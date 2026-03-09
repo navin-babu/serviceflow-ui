@@ -1,7 +1,7 @@
 .header {
   position: sticky;   
   top: 0;
-  background-color: rgb(34, 40, 49);
+  background: linear-gradient(165deg, #0f172a 0%, #1f2937 100%);
   color: white;
   height: 60px;
   padding: 10px;
@@ -26,6 +26,23 @@
 .sideButtons {
     height: 40px;
     width: 90px;
-    background-color: white;
-    color: rgb(34, 40, 49);
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.userInfo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.userInfo button {
+    height: 40px;
+    width: 90px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
 }

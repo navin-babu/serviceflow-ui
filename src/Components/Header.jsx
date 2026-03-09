@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 
-function Header() {
-    const user = JSON.parse(localStorage.getItem("user"));
+function Header({ user, handleLogout }) {
     console.log("Login user: ", user);
   return (
     <div>
@@ -13,9 +12,10 @@ function Header() {
         </div>
         <nav>
           {user ? (
-            <>
+            <div className={styles.userInfo}>
               <h4>👤 {user.name}</h4>
-            </>
+              <button id='logout-button' className={styles.sideButtons} onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i></button>
+            </div>
           ) : (
             <div className={styles.sideButtonsContainer}>
               <button className={styles.sideButtons}>Log in</button>

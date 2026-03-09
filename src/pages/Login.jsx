@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styles from '../styles/Login.module.css'
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({setUser}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ function Login() {
         }
 
         const data = await res.json();
-
+        setUser(data);
         localStorage.setItem("user", JSON.stringify(data));
         console.log("Login response: ", data);
 

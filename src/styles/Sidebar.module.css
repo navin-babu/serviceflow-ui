@@ -1,16 +1,61 @@
 .sidebar {
-    width: 220px;
-    height: 100vh;
-    background-color: rgb(34, 40, 49);
-    color: white;
+  width: 280px;
+  min-height: calc(100vh - 72px);
+  background: linear-gradient(165deg, #0f172a 0%, #1f2937 100%);
+  color: #f8fafc;
+  border-right: 1px solid #334155;
+  padding: 24px 16px;
+  position: sticky;
+  top: 72px;
 }
 
-.sidebarItems {
-    padding: 20px 10px;
-    cursor: pointer;
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 8px 10px 18px;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 16px;
 }
 
-.subMenu {
-  margin-left: 15px;
-  margin-bottom: 10px;
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.active {
+  background-color: #0ea5e9;
+  color: #0b1120;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    position: static;
+    top: auto;
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

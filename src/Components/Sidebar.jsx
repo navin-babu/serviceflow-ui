@@ -1,25 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../styles/Sidebar.module.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Sidebar({ items }) {
-    const [openMenu, setOpenMenu] = useState(false);
-    const navigate = useNavigate();
-
   return (
-    <div className={styles.sidebar}>
-      {items.map((item, index) => (
-        <div>
-          <div className="menuItems" onClick={() => navigate(item.path)}>
-            <i className={`${item.icon} ${styles.icon}`}></i>
-            <div key={index} className={styles.sidebarItems}>
-              <b>{item.label}</b>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    <aside className={styles.sidebar}>
+      <div className={styles.brand}>Admin Console</div>
+      <nav className={styles.nav}>
+        {items.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.end}
+            className={({ isActive }) =>
+              `${styles.link} ${isActive ? styles.active : ""}`
+            }
+          >
+            <i className={item.icon}></i>
+            <span>{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
+    </aside>
   );
 }
 
