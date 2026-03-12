@@ -111,10 +111,7 @@ const AdminLayout = () => {
     [users, employees, repairRequests],
   );
 
-  const onLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/login");
-  };
+
 
   return (
     <div className="adminShell">

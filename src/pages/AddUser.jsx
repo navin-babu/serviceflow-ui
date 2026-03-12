@@ -16,10 +16,16 @@ function AddUser() {
     setForm((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    addUser(form);
-    navigate("/admin/edit-users");
+    // addUser(form);
+    // navigate("/admin/edit-users");
+    try {
+      const res = await fetch("http://localhost:8080/api/auth/add");
+      
+    } catch (error) {
+      console.log(`Error Adding User: ${error}`)
+    }
   };
 
   return (

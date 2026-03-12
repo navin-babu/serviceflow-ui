@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 
-function Header({ user, handleLogout }) {
+function Header({ user, handleLogout, theme, toggleTheme }) {
     console.log("Login user: ", user);
   return (
     <div>
@@ -10,7 +10,15 @@ function Header({ user, handleLogout }) {
           <i className="fa-brands fa-shopware"></i>
           <h2>ServiceFlow</h2>
         </div>
-        <nav>
+        <nav className={styles.navContainer}>
+          <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle Theme">
+            {theme === "light" ? (
+              <i className="fa-solid fa-moon"></i>
+            ) : (
+              <i className="fa-solid fa-sun"></i>
+            )}
+          </button>
+          
           {user ? (
             <div className={styles.userInfo}>
               <h4>👤 {user.name}</h4>

@@ -16,14 +16,27 @@ import RepairRequests from "./pages/RepairRequests";
 import Report from "./pages/Report";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
+    if (theme === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
     }
-  }, []);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === "light" ? "dark" : "light");
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -32,7 +45,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header user={user} handleLogout={handleLogout} />
+      <Header user={user} handleLogout={handleLogout} theme={theme} toggleTheme={toggleTheme} />
       <main className="content">
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
